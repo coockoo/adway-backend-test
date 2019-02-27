@@ -10,7 +10,7 @@ const handleDelete = require('./handle-delete');
 const app = express();
 
 app.post('/create', handleCreate);
-app.delete('/delete', handleDelete);
+app.post('/delete', handleDelete);
 
 app.use((req, res) => {
   res.status(404).end();
@@ -32,6 +32,7 @@ process.on('SIGTERM', shutdown);
 function shutdown() {
   mongo.getClient().close();
   console.log(`App stopped on port ${config.port}`);
+  process.exit(0);
 }
 
 async function main() {

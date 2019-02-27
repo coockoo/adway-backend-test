@@ -17,7 +17,7 @@ async function handleCreate(req, res, next) {
       throw new ValidationError("Parameter 'name' is required");
     }
     sdk.FacebookAdsApi.init(config.token);
-    const account = new sdk.AdAccount(config.addAccountId);
+    const account = new sdk.AdAccount(config.adAccountId);
     const newCampaign = await account.createCampaign([sdk.Campaign.Fields.Id], {
       [sdk.Campaign.Fields.name]: name,
       [sdk.Campaign.Fields.status]: sdk.Campaign.Status.paused,

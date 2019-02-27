@@ -1,6 +1,16 @@
+const { argv } = require('yargs');
+
+if (!argv.id) {
+  throw new Error('--id parameter is required');
+}
+if (!argv.token) {
+  throw new Error('--token parameter is required');
+}
+
 module.exports = {
-  // TODO: Make port customizable via cli args
-  port: 3000,
+  port: argv.port || 3000,
+  adAccountId: `act_${argv.id}`,
+  token: argv.token,
 
   // Development account
   // token:
@@ -8,10 +18,11 @@ module.exports = {
   // addAccountId: 'act_244915619722504',
 
   // Personal account
-  addAccountId: 'act_493190961147083',
+  //493190961147083
+  //addAccountId: `act_${}`,
   token:
     'EAAcHfIID1jIBACVDEYA3GPa22QZAZC5c7ZBD5TNucX8p7ulX52ehke8wz4Lo8Q3egWAcU2DwLoQAHaHL8qH8HNIZChAg000bi3nKgv46lScsaLEyG6EBvZAERZBe4Tl1lWJkbmbOX1bqECDjoRv9XmqOWU1T32089QwZCFb1a6lZBQZDZD',
 
   // addAccountId: '352697805330464',
-  mongoUrl: 'mongodb://localhost:27017',
+  mongoUrl: argv.mongo || 'mongodb://localhost:27017',
 };

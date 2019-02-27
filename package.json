@@ -5,7 +5,8 @@
   "description": "Backend test solution written by Oleksandr Bondarchuk",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --config .nodemon.json src/index.js"
   },
   "keywords": [
     "backend",
@@ -17,6 +18,15 @@
   "author": "Oleksandr Bondarchuk <alex.coockoo@gmail.com> (https://github.com/coockoo)",
   "license": "MIT",
   "devDependencies": {
+    "eslint": "^5.14.1",
+    "nodemon": "^1.18.10",
     "prettier": "^1.16.4"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "facebook-nodejs-business-sdk": "^3.2.8"
+  },
+  "engines": {
+    "node": ">=10"
   }
 }

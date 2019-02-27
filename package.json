@@ -24,7 +24,8 @@
   },
   "dependencies": {
     "express": "^4.16.4",
-    "facebook-nodejs-business-sdk": "^3.2.8"
+    "facebook-nodejs-business-sdk": "^3.2.8",
+    "mongodb": "^3.1.13"
   },
   "engines": {
     "node": ">=10"

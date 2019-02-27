@@ -13,4 +13,5 @@ module.exports = {
     'EAAcHfIID1jIBACVDEYA3GPa22QZAZC5c7ZBD5TNucX8p7ulX52ehke8wz4Lo8Q3egWAcU2DwLoQAHaHL8qH8HNIZChAg000bi3nKgv46lScsaLEyG6EBvZAERZBe4Tl1lWJkbmbOX1bqECDjoRv9XmqOWU1T32089QwZCFb1a6lZBQZDZD',
 
   // addAccountId: '352697805330464',
+  mongoUrl: 'mongodb://localhost:27017',
 };

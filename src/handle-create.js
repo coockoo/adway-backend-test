@@ -1,6 +1,7 @@
 const sdk = require('facebook-nodejs-business-sdk');
 
 const config = require('./config');
+const mongo = require('./mongo');
 const { ValidationError } = require('./errors');
 
 async function handleCreate(req, res, next) {
@@ -22,7 +23,9 @@ async function handleCreate(req, res, next) {
       [sdk.Campaign.Fields.status]: sdk.Campaign.Status.paused,
       [sdk.Campaign.Fields.objective]: objective,
     });
-    console.log('new campaign id', newCampaign.id);
+    const db = mongo.getDb();
+    const campaigns = db.collection('campaigns');
+    await campaigns.insertOne({ fb_campaign_id: newCampaign.id });
   } catch (error) {
     next(error);
   }

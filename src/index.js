@@ -1,6 +1,7 @@
 const express = require('express');
 
 const config = require('./config');
+const mongo = require('./mongo');
 const { ValidationError } = require('./errors');
 
 const handleCreate = require('./handle-create');
@@ -25,6 +26,19 @@ app.use((error, req, res, next_) => {
   res.status(500).end();
 });
 
-app.listen(config.port, () => {
-  console.log(`App is listening on port ${config.port}`);
-});
+process.on('SIGINT', shutdown);
+process.on('SIGTERM', shutdown);
+
+function shutdown() {
+  mongo.getClient().close();
+  console.log(`App stopped on port ${config.port}`);
+}
+
+async function main() {
+  await mongo.init();
+  app.listen(config.port, () => {
+    console.log(`App is listening on port ${config.port}`);
+  });
+}
+
+main();

@@ -24,8 +24,8 @@ async function handleCreate(req, res, next) {
       [sdk.Campaign.Fields.objective]: objective,
     });
     const db = mongo.getDb();
-    const campaigns = db.collection('campaigns');
-    await campaigns.insertOne({ fb_campaign_id: newCampaign.id });
+    const campaignsCollection = db.collection('campaigns');
+    await campaignsCollection.insertOne({ fb_campaign_id: newCampaign.id });
   } catch (error) {
     next(error);
   }

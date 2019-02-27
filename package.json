@@ -1,0 +1,22 @@
+{
+  "name": "backend-test-bondarchuk",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Backend test solution written by Oleksandr Bondarchuk",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "backend",
+    "test",
+    "mongo",
+    "facebook",
+    "API"
+  ],
+  "author": "Oleksandr Bondarchuk <alex.coockoo@gmail.com> (https://github.com/coockoo)",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^1.16.4"
+  }
+}
